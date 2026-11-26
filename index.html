@@ -1,0 +1,144 @@
+<!--
+  Diabetes Diet Advisor
+  Supports UN SDG 3: Good Health and Well-being
+  Beginner-friendly HTML/CSS/JS project
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetes Diet Advisor | SDG 3 Project</title>
+  <meta name="description" content="A friendly web app that helps diabetic patients choose safe foods and fruits. Supports UN SDG 3: Good Health and Well-being." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <nav class="navbar">
+    <div class="logo">🥗 DiaDiet</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#advisor">Advisor</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#bmi">BMI</a></li>
+      <li><a href="#water">Water</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+ 
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <span class="sdg-badge">UN SDG 3 · Good Health & Well-being</span>
+      <h1>Diabetes Diet Advisor</h1>
+      <p>
+        Smart, simple guidance to help diabetic patients choose the right foods
+        and fruits — and live healthier every day.
+      </p>
+      <a href="#advisor" class="btn-primary">Get Recommendation</a>
+    </div>
+    <div class="hero-card">
+      <div class="floating-emoji">🍎</div>
+      <div class="floating-emoji delay-1">🥦</div>
+      <div class="floating-emoji delay-2">🥛</div>
+      <div class="floating-emoji delay-3">🍌</div>
+    </div>
+  </header>
+ 
+  <section id="advisor" class="section">
+    <h2>Check Your Food</h2>
+    <p class="section-sub">Enter your blood sugar level and pick a food to get an instant recommendation.</p>
+
+    <div class="card advisor-card">
+      <label for="sugar">Blood Sugar Level (mg/dL)</label>
+      <input type="number" id="sugar" placeholder="e.g. 120" min="0" />
+
+      <label for="food">Select Food / Fruit</label>
+      <select id="food">
+        <option value="">-- Choose --</option>
+        <option value="banana">Banana</option>
+        <option value="apple">Apple</option>
+        <option value="mango">Mango</option>
+        <option value="lychee">Lychee</option>
+        <option value="orange">Orange</option>
+        <option value="papaya">Papaya</option>
+        <option value="rice">Rice</option>
+        <option value="bread">Bread</option>
+        <option value="potato">Potato</option>
+        <option value="oats">Oats</option>
+        <option value="milk">Milk</option>
+      </select>
+
+      <button class="btn-primary" onclick="checkFood()">Check Recommendation</button>
+
+      <div id="result" class="result hidden"></div>
+    </div>
+  </section>
+ 
+  <section id="tips" class="section tinted">
+    <h2>Healthy Diet Tips</h2>
+    <div class="grid">
+      <div class="card tip-card"><h3>🥗 Eat More Fiber</h3><p>Include vegetables, beans, and whole grains in every meal.</p></div>
+      <div class="card tip-card"><h3>🚫 Limit Sugar</h3><p>Avoid sweets, sodas, and packaged juices that spike glucose.</p></div>
+      <div class="card tip-card"><h3>💧 Stay Hydrated</h3><p>Drink water regularly — at least 8 glasses a day.</p></div>
+      <div class="card tip-card"><h3>🏃 Stay Active</h3><p>30 minutes of walking daily improves insulin sensitivity.</p></div>
+      <div class="card tip-card"><h3>🍽 Small Portions</h3><p>Eat smaller meals more often to keep sugar levels stable.</p></div>
+      <div class="card tip-card"><h3>😴 Sleep Well</h3><p>Aim for 7–8 hours of quality sleep every night.</p></div>
+    </div>
+  </section>
+ 
+  <section id="bmi" class="section">
+    <h2>BMI Calculator</h2>
+    <p class="section-sub">Body Mass Index helps you track a healthy weight range.</p>
+    <div class="card advisor-card">
+      <label for="weight">Weight (kg)</label>
+      <input type="number" id="weight" placeholder="e.g. 65" />
+      <label for="height">Height (cm)</label>
+      <input type="number" id="height" placeholder="e.g. 170" />
+      <button class="btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+      <div id="bmiResult" class="result hidden"></div>
+    </div>
+  </section>
+ 
+  <section id="water" class="section tinted">
+    <h2>Water Intake Reminder</h2>
+    <p class="section-sub">Track your daily water goal — staying hydrated controls blood sugar.</p>
+    <div class="card advisor-card water-card">
+      <p>Glasses today: <span id="glassCount">0</span> / 8</p>
+      <div class="water-bar"><div id="waterFill" class="water-fill"></div></div>
+      <div class="water-actions">
+        <button class="btn-secondary" onclick="addGlass()">+ Add Glass</button>
+        <button class="btn-secondary" onclick="resetGlass()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section id="about" class="section">
+    <h2>About & Contact</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>About the Project</h3>
+        <p>Created by Kunal Shukla</p>
+        <p>
+          Diabetes Diet Advisor is a student project aligned with the
+          United Nations Sustainable Development Goal 3 — Good Health and
+          Well-being. It helps diabetic patients make smarter food choices.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Contact</h3>
+        <p>📧 kunalsupport@gmail.com</p>
+        <p>📍 Health Research Lab, College Campus</p>
+        <p>🌐 www.diadiet.example</p>
+      </div>
+    </div>
+  </section>
+ 
+  <footer class="footer">
+    <p>© 2026 Diabetes Diet Advisor · Built for UN SDG 3 · Good Health & Well-being</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
